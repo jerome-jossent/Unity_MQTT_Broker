@@ -23,7 +23,7 @@ public class MqttBrokerManager : MonoBehaviour
 
     private static MqttBrokerManager _instance;
     private MqttServer _mqttServer;
-    public bool print = false;
+    public bool debug_print = false;
 
     private void Awake()
     {
@@ -94,7 +94,7 @@ public class MqttBrokerManager : MonoBehaviour
 
             await _mqttServer.StartAsync();
 
-            if (print) Debug.Log($"[MQTT] Broker démarré sur le port {port}");
+            if (debug_print) Debug.Log($"[MQTT] Broker démarré sur le port {port}");
         }
         catch (Exception e)
         {
@@ -115,14 +115,14 @@ public class MqttBrokerManager : MonoBehaviour
 
     private Task HandleClientConnected(ClientConnectedEventArgs args)
     {
-        if (print) Debug.Log($"[MQTT] Client connecté : {args.ClientId}");
+        if (debug_print) Debug.Log($"[MQTT] Client connecté : {args.ClientId}");
         return Task.CompletedTask;
     }
 
     private Task HandleMessagePublished(InterceptingPublishEventArgs args)
     {
         var topic = args.ApplicationMessage.Topic;
-        if (print) Debug.Log($"[MQTT] Message reçu sur le topic '{topic}'");
+        if (debug_print) Debug.Log($"[MQTT] Message reçu sur le topic '{topic}'");
         return Task.CompletedTask;
     }
 
