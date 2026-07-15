@@ -1,0 +1,3 @@
+< linker >
+  < assembly fullname = "MQTTnet" preserve = "all" />
+</ linker >
