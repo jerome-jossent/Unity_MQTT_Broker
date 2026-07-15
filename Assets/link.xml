@@ -1,3 +1,3 @@
-< linker >
-  < assembly fullname = "MQTTnet" preserve = "all" />
-</ linker >
+<linker>
+  <assembly fullname = "MQTTnet" preserve = "all"/>
+</linker>
